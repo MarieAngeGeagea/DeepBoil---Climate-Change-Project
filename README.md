@@ -40,6 +40,13 @@ You can view our project summary and results in the [poster](./DeepBoil_ClimateC
 - Training and validation losses
 - Visualizations of predicted velocity fields
 
+## 🔚 Conclusion
+Overall, the loss values across all models are approximately similar, indicating comparable performance in terms of error metrics. However, ConvLSTM demonstrates the best performance for single time-step predictions. This is evident from the visualizations, where the predicted velocity fields closely match the ground truth. This strong performance is expected, as the ConvLSTM architecture effectively captures both temporal dependencies (through LSTM layers) and spatial patterns (through convolutional layers), making it particularly well-suited for sequence-based spatial data.
+
+In contrast, for multi-step (roll-out) predictions, the U-Net model performs best. This could be attributed to the fact that recurrent models like LSTMs are prone to error accumulation over multiple time steps, as small inaccuracies compound during each prediction step. U-Net, being a fully convolutional architecture, may handle long-term structure and spatial consistency more robustly in this context.
+
+For more reliable model comparisons in the future, it would be beneficial to train and evaluate all models on the exact same training and validation sets. While a 70:30 split was maintained for each model in this study, the data subsets differed, which could have influenced performance differences across models.
+
 ## 👥 Team Members
 Marie-Ange Geagea
 
